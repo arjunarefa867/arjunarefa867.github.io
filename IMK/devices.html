@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/devices.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Devices</title>
+</head>
+<body>
+
+    <header>
+        <h1>Smart Home Devices</h1>
+        <p>Manage and view all connected devices</p>
+    </header>
+
+    <div class="devices-container">
+        <!-- Device 1: Smart Lightbulb -->
+        <div class="device-card">
+            <img src="https://play-lh.googleusercontent.com/pQbjhDzL7QZqFokzJvom2Pe5mLXfvb9cUMF77pJVVOn-vAcCCyKB3i47Fuu9ULeVlTA" alt="Smart Lightbulb" class="device-image">
+            <h3>Smart Lightbulb</h3>
+            <p>Status: <span id="light-status">Off</span></p>
+            <button id="toggle-light" class="toggle-button">Turn On</button>
+            <label for="brightness">Brightness:</label>
+            <input type="range" id="brightness" name="brightness" min="0" max="100" value="50">
+        </div>
+
+        <!-- Device 2: Smart Thermostat -->
+        <div class="device-card">
+            <img src="https://play-lh.googleusercontent.com/gZXlQnfyJp_bp-15PMy73UDa7vYRQd5_2cBlp6UKB2PwYqdOq6CrW3pcmz-vueMPRJ4=w526-h296-rw" alt="Smart Thermostat" class="device-image">
+            <h3>Smart Thermostat</h3>
+            <p>Current Temperature: <span id="current-temp">22°C</span></p>
+            <button id="adjust-temp" class="adjust-button">Adjust Temperature</button>
+            <label for="temperature">Set Temperature:</label>
+            <input type="range" id="temperature" name="temperature" min="16" max="30" value="22">
+        </div>
+
+        <!-- Device 3: Security Camera -->
+        <div class="device-card">
+            <img src="c:\Users\L13 YOGA\Pictures\Saved Pictures\Gambar WhatsApp 2024-12-14 pukul 00.04.39_8b43cd9b.jpg" alt="Security Camera" class="device-image">
+            <h3>Security Camera</h3>
+            <p>Status: <span id="camera-status">Inactive</span></p>
+            <button id="toggle-camera" class="toggle-button">Activate Camera</button>
+        </div>
+
+        <!-- Device 4: Smart Door Lock -->
+        <div class="device-card">
+            <img src="https://via.placeholder.com/150" alt="Smart Door Lock" class="device-image">
+            <h3>Smart Door Lock</h3>
+            <p>Status: <span id="lock-status">Locked</span></p>
+            <button id="toggle-lock" class="toggle-button">Unlock Door</button>
+        </div>
+    </div>
+
+    <script>
+        // Smart Lightbulb Interaction
+        const toggleLightButton = document.getElementById('toggle-light');
+        const lightStatus = document.getElementById('light-status');
+        const brightnessSlider = document.getElementById('brightness');
+
+        toggleLightButton.addEventListener('click', () => {
+            if (lightStatus.textContent === 'Off') {
+                lightStatus.textContent = 'On';
+                toggleLightButton.textContent = 'Turn Off';
+            } else {
+                lightStatus.textContent = 'Off';
+                toggleLightButton.textContent = 'Turn On';
+            }
+        });
+
+        brightnessSlider.addEventListener('input', () => {
+            const brightnessValue = brightnessSlider.value;
+            console.log('Brightness:', brightnessValue);
+        });
+
+        // Smart Thermostat Interaction
+        const tempSlider = document.getElementById('temperature');
+        const tempValue = document.getElementById('temp-value');
+        const currentTemp = document.getElementById('current-temp');
+        const adjustButton = document.getElementById('adjust-temp');
+
+        tempSlider.addEventListener('input', () => {
+            const newTemp = tempSlider.value;
+            tempValue.textContent = `${newTemp}°C`;
+        });
+
+        adjustButton.addEventListener('click', () => {
+            const newTemp = tempSlider.value;
+            currentTemp.textContent = `${newTemp}°C`;
+            alert(`Temperature set to ${newTemp}°C`);
+        });
+
+        // Security Camera Interaction
+        const toggleCameraButton = document.getElementById('toggle-camera');
+        const cameraStatus = document.getElementById('camera-status');
+
+        toggleCameraButton.addEventListener('click', () => {
+            if (cameraStatus.textContent === 'Inactive') {
+                cameraStatus.textContent = 'Active';
+                toggleCameraButton.textContent = 'Deactivate Camera';
+            } else {
+                cameraStatus.textContent = 'Inactive';
+                toggleCameraButton.textContent = 'Activate Camera';
+            }
+        });
+
+        // Smart Door Lock Interaction
+        const toggleLockButton = document.getElementById('toggle-lock');
+        const lockStatus = document.getElementById('lock-status');
+
+        toggleLockButton.addEventListener('click', () => {
+            if (lockStatus.textContent === 'Locked') {
+                lockStatus.textContent = 'Unlocked';
+                toggleLockButton.textContent = 'Lock Door';
+            } else {
+                lockStatus.textContent = 'Locked';
+                toggleLockButton.textContent = 'Unlock Door';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Reset dan pengaturan dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #2196F3;
+  color: white;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+}
+
+/* Kontainer untuk perangkat smart home */
+.devices-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Kartu perangkat */
+.device-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.device-card:hover {
+  transform: translateY(-5px);
+}
+
+.device-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.device-card h3 {
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Status perangkat dan tombol */
+.device-status {
+  margin-bottom: 20px;
+}
+
+.toggle-button, .adjust-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #2196F3;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover, .adjust-button:hover {
+  background-color: #1976D2;
+}
+
+/* Kontrol kecerahan dan suhu */
+.brightness-control, .temperature-control {
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+.brightness-control label, .temperature-control label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.brightness-control input, .temperature-control input {
+  width: 100%;
+  margin-top: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ddd;
+  height: 8px;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.brightness-control input:hover, .temperature-control input:hover {
+  background-color: #bbb;
+}
+
+.brightness-control input::-webkit-slider-thumb, .temperature-control input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #2196F3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.brightness-control input::-moz-range-thumb, .temperature-control input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #2196F3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#temp-value {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+}

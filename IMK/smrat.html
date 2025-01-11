@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Thermostat Control - Smart Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .thermostat-control {
+            margin-top: 20px;
+        }
+
+        .thermostat-control img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .thermostat-control p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .slider-container {
+            margin-top: 20px;
+        }
+
+        .slider-container input {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px 0;
+        }
+
+        .control-buttons {
+            margin-top: 20px;
+        }
+
+        .control-buttons button {
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .control-buttons button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="IMK.html">
+            <button class="back-button" onclick="window.history.back()">Kembali</button>
+            </a>
+        <h1>Smart Thermostat Control</h1>
+        <p>Adjust the temperature to your comfort level.</p>
+    </header>
+
+    <div class="container">
+        <div class="thermostat-control">
+            <!-- Image of the thermostat (can be replaced with a real image) -->
+            <img src="https://play-lh.googleusercontent.com/gZXlQnfyJp_bp-15PMy73UDa7vYRQd5_2cBlp6UKB2PwYqdOq6CrW3pcmz-vueMPRJ4=w526-h296-rw" alt="Smart Thermostat">
+            <p>Current Temperature: <span id="currentTemp">22°C</span></p>
+        </div>
+
+        <div class="slider-container">
+            <label for="tempSlider">Set Temperature:</label>
+            <input type="range" id="tempSlider" min="16" max="30" value="22" step="1">
+            <p>Temperature: <span id="tempValue">22°C</span></p>
+        </div>
+
+        <div class="control-buttons">
+            <button id="applyTempBtn">Apply Temperature</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart Home. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle temperature adjustment
+        const tempSlider = document.getElementById('tempSlider');
+        const tempValue = document.getElementById('tempValue');
+        const currentTemp = document.getElementById('currentTemp');
+        const applyTempBtn = document.getElementById('applyTempBtn');
+
+        // Update the temperature value on slider change
+        tempSlider.addEventListener('input', function() {
+            const temp = tempSlider.value;
+            tempValue.textContent = `${temp}°C`;
+        });
+
+        // Simulate applying the temperature change
+        applyTempBtn.addEventListener('click', function() {
+            const temp = tempSlider.value;
+            currentTemp.textContent = `${temp}°C`;
+            alert(`Temperature set to ${temp}°C`);
+        });
+    </script>
+
+</body>
+</html>

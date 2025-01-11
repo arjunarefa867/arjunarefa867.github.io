@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JST - Smart Home</title>
+    <style>
+        /* Aturan dasar untuk body */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animasi latar belakang */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://play-lh.googleusercontent.com/HLrwB_TgcJMW_X71l151QuLT4r5hjvF0QiInoGX30UykXQ16RHK958zMUkTrscTv4dmo') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(5px);
+            z-index: -1;
+            animation: moveBackground 30s infinite linear;
+        }
+
+        /* Animasi untuk pergerakan latar belakang */
+        @keyframes moveBackground {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 48px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out 1s;
+        }
+
+        /* Navigasi */
+        nav {
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeIn 3s ease-in-out 2s;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            background-color: rgba(76, 175, 80, 0.8);
+            border-radius: 50px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(76, 175, 80, 1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animasi Fade In */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Kontainer utama */
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 3s ease-in-out 3s;
+        }
+
+        .cta-button {
+            padding: 20px 40px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Latar belakang dengan efek blur dan pergerakan -->
+    <div class="background"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>Smart Home</h1>
+        <p>Kelola rumah Anda secara mudah dan efisien</p>
+    </header>
+
+    <!-- Navigasi -->
+    <nav>
+        <ul>
+            
+            
+        </ul>
+    </nav>
+
+    <!-- Tombol CTA -->
+    <div class="cta-container">
+     <a href="utama.html"><button class="cta-button">Mulai Sekarang</button>
+    </div>
+
+</body>
+</html>

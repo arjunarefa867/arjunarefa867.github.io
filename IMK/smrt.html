@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Lightbulb Control - Smart Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lightbulb-control {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .lightbulb-control img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .lightbulb-control p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .control-buttons {
+            margin-top: 20px;
+        }
+
+        .control-buttons button {
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .control-buttons button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="IMK.html">
+            <button class="back-button" onclick="window.history.back()">Kembali</button>
+            </a>
+        <h1>Smart Lightbulb Control</h1>
+        <p>Control your smart lightbulb from here.</p>
+    </header>
+
+    <div class="container">
+        <div class="lightbulb-control">
+            <!-- Image representing the lightbulb -->
+            <img src="https://play-lh.googleusercontent.com/pQbjhDzL7QZqFokzJvom2Pe5mLXfvb9cUMF77pJVVOn-vAcCCyKB3i47Fuu9ULeVlTA" alt="Smart Lightbulb">
+            <p>Smart Lightbulb - Currently OFF</p>
+        </div>
+
+        <div class="control-buttons">
+            <!-- Turn On/Off button -->
+            <button id="toggleLightBtn">Turn On</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart Home. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to toggle the lightbulb on/off
+        let lightOn = false;
+
+        const toggleButton = document.getElementById('toggleLightBtn');
+        const lightbulbStatus = document.querySelector('.lightbulb-control p');
+
+        toggleButton.addEventListener('click', function() {
+            lightOn = !lightOn; // Toggle the state
+
+            if (lightOn) {
+                toggleButton.textContent = 'Turn Off';
+                lightbulbStatus.textContent = 'Smart Lightbulb - Currently ON';
+            } else {
+                toggleButton.textContent = 'Turn On';
+                lightbulbStatus.textContent = 'Smart Lightbulb - Currently OFF';
+            }
+        });
+    </script>
+
+</body>
+</html>

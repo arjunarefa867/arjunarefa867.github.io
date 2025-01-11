@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .device-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .device-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .device-card h3 {
+            margin: 10px 0;
+        }
+
+        .device-card button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .device-card button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Smart Home Dashboard</h1>
+        <p>Control your smart devices with ease</p>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a>
+    </nav>
+
+    <div class="container">
+        <!-- Device 1 -->
+        <div class="device-card">
+            <img src="https://play-lh.googleusercontent.com/pQbjhDzL7QZqFokzJvom2Pe5mLXfvb9cUMF77pJVVOn-vAcCCyKB3i47Fuu9ULeVlTA" alt="Lightbulb">
+            <h3>Smart Lightbulb</h3>
+            <a href="smrt.html"><button>Trun On</button></a>
+        </div>
+        <!-- Device 2 -->
+        <div class="device-card">
+            <img src="https://play-lh.googleusercontent.com/gZXlQnfyJp_bp-15PMy73UDa7vYRQd5_2cBlp6UKB2PwYqdOq6CrW3pcmz-vueMPRJ4=w526-h296-rw" alt="Thermostat">
+            <h3>Smart Thermostat</h3>
+           <a href="smrat.html"><button>Adjust Temperature</button></a>  
+        </div>
+        <!-- Device 3 -->
+        <div class="device-card">
+            <img src="c:\Users\L13 YOGA\Pictures\Saved Pictures\Gambar WhatsApp 2024-12-14 pukul 00.04.39_8b43cd9b.jpg" alt="Security Camera">
+            <h3>Security Camera</h3>
+            <a href="zxc.html"><button>View Live Feed</button></a>
+        </div>
+        <!-- Device 4 -->
+        <div class="device-card">
+            <img src="c:\Users\L13 YOGA\Pictures\Saved Pictures\pngtree-padlock-flat-icon-png-image_9138491.png" alt="Smart Lock">
+            <h3>Smart Door Lock</h3>
+            <a href="bca.html"><button>Lock Door</button></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart Home. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
