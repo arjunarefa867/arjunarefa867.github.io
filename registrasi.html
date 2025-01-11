@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi - Smart Home</title>
+    <style>
+        /* Mengatur background dengan animasi awan */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #0e0d0c; /* Langit biru */
+        }
+
+        /* Efek animasi awan */
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbFZLd7sm-XMzOIeVey7YEeP7GwW58Xl3XAw&s') repeat-x;
+            background-size: 1500px; /* Menyesuaikan ukuran pola awan */
+            animation: cloudMove 10s linear infinite;
+            z-index: -1; /* Membuat gambar berada di belakang form */
+        }
+
+        /* Animasi pergerakan awan */
+        @keyframes cloudMove {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-1500px);
+            }
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 10px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        form {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-info {
+            width: 80%;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menambahkan lapisan animasi awan -->
+    <div class="clouds"></div>
+
+    <header>
+        <a href="utama.html">
+            <button class="back-button" onclick="window.history.back()">Kembali</button>
+        </a>
+        <h1>Daftar di Smart Home</h1>
+    </header>
+
+    <form action="home.html" id="register-form">
+        <div class="input-group">
+            <label for="username">Nama Pengguna</label>
+            <input type="text" id="username" name="username" placeholder="Masukkan nama pengguna" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+        </div>
+        <div class="input-group">
+            <label for="phone">Nomor Handphone</label>
+            <input type="text" id="phone" name="phone" placeholder="Masukkan nomor handphone" required>
+        </div>
+        <button type="submit">Daftar</button>
+        <p>Sudah punya akun? <a href="login.html">Login</a></p>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

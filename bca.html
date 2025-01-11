@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Door Lock Control - Smart Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lock-control {
+            margin-top: 20px;
+        }
+
+        .lock-control img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .lock-control p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .control-buttons {
+            margin-top: 20px;
+        }
+
+        .control-buttons button {
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .control-buttons button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="IMK.html">
+            <button class="back-button" onclick="window.history.back()">Kembali</button>
+            </a>s
+        <h1>Smart Door Lock Control</h1>
+        <p>Lock or unlock your smart door lock from here.</p>
+    </header>
+
+    <div class="container">
+        <div class="lock-control">
+            <!-- Image of the door lock (can be replaced with a real image) -->
+            <img src="c:\Users\L13 YOGA\Pictures\Saved Pictures\pngtree-padlock-flat-icon-png-image_9138491.png" alt="Smart Door Lock">
+            <p>Status: <span id="lockStatus">Unlocked</span></p>
+        </div>
+
+        <div class="control-buttons">
+            <!-- Lock and Unlock buttons -->
+            <button id="lockBtn">Lock Door</button>
+            <button id="unlockBtn">Unlock Door</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart Home. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to control the door lock
+        const lockStatus = document.getElementById('lockStatus');
+        const lockBtn = document.getElementById('lockBtn');
+        const unlockBtn = document.getElementById('unlockBtn');
+
+        // Lock door action
+        lockBtn.addEventListener('click', function() {
+            lockStatus.textContent = 'Locked';
+            lockBtn.disabled = true; // Disable the "Lock Door" button
+            unlockBtn.disabled = false; // Enable the "Unlock Door" button
+        });
+
+        // Unlock door action
+        unlockBtn.addEventListener('click', function() {
+            lockStatus.textContent = 'Unlocked';
+            unlockBtn.disabled = true; // Disable the "Unlock Door" button
+            lockBtn.disabled = false; // Enable the "Lock Door" button
+        });
+
+        // Initial state: Unlock the door
+        unlockBtn.disabled = true;
+    </script>
+
+</body>
+</html>

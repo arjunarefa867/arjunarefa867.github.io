@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stikman Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #87CEEB;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+    // Mendapatkan konteks dari canvas
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Variabel untuk stikman dan rintangan
+    const stikmanWidth = 40;
+    const stikmanHeight = 60;
+    let stikmanX = canvas.width / 2 - stikmanWidth / 2;
+    let stikmanY = canvas.height - stikmanHeight - 20;
+    let stikmanSpeed = 5;
+
+    let obstacles = [];
+    let obstacleWidth = 50;
+    let obstacleHeight = 30;
+    let obstacleSpeed = 2;
+
+    let score = 0;
+    let gameOver = false;
+
+    // Menggerakkan stikman
+    let rightPressed = false;
+    let leftPressed = false;
+
+    // Mendengarkan input dari keyboard
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            rightPressed = true;
+        }
+        if (e.key === 'ArrowLeft') {
+            leftPressed = true;
+        }
+    });
+
+    document.addEventListener('keyup', (e) => {
+        if (e.key === 'ArrowRight') {
+            rightPressed = false;
+        }
+        if (e.key === 'ArrowLeft') {
+            leftPressed = false;
+        }
+    });
+
+    // Fungsi untuk menggambar stikman
+    function drawStikman() {
+        ctx.fillStyle = 'red';
+        ctx.fillRect(stikmanX, stikmanY, stikmanWidth, stikmanHeight);
+    }
+
+    // Fungsi untuk menggambar rintangan
+    function drawObstacles() {
+        ctx.fillStyle = 'black';
+        obstacles.forEach(obstacle => {
+            ctx.fillRect(obstacle.x, obstacle.y, obstacleWidth, obstacleHeight);
+        });
+    }
+
+    // Fungsi untuk menggerakkan rintangan
+    function moveObstacles() {
+        for (let i = 0; i < obstacles.length; i++) {
+            obstacles[i].y += obstacleSpeed;
+            if (obstacles[i].y > canvas.height) {
+                obstacles.splice(i, 1);
+                score++;
+            }
+        }
+    }
+
+    // Fungsi untuk memeriksa tabrakan
+    function checkCollisions() {
+        for (let i = 0; i < obstacles.length; i++) {
+            if (
+                stikmanX < obstacles[i].x + obstacleWidth &&
+                stikmanX + stikmanWidth > obstacles[i].x &&
+                stikmanY < obstacles[i].y + obstacleHeight &&
+                stikmanY + stikmanHeight > obstacles[i].y
+            ) {
+                gameOver = true;
+            }
+        }
+    }
+
+    // Fungsi untuk menggambar skor
+    function drawScore() {
+        ctx.fillStyle = 'black';
+        ctx.font = '20px Arial';
+        ctx.fillText('Score: ' + score, 10, 30);
+    }
+
+    // Fungsi untuk menggambar pesan Game Over
+    function drawGameOver() {
+        ctx.fillStyle = 'black';
+        ctx.font = '30px Arial';
+        ctx.fillText('Game Over!', canvas.width / 2 - 90, canvas.height / 2);
+    }
+
+    // Fungsi untuk mengupdate posisi stikman
+    function updateStikmanPosition() {
+        if (rightPressed && stikmanX < canvas.width - stikmanWidth) {
+            stikmanX += stikmanSpeed;
+        }
+        if (leftPressed && stikmanX > 0) {
+            stikmanX -= stikmanSpeed;
+        }
+    }
+
+    // Fungsi untuk menambah rintangan secara acak
+    function addObstacle() {
+        if (Math.random() < 0.02) { // Menambah rintangan dengan probabilitas tertentu
+            const x = Math.random() * (canvas.width - obstacleWidth);
+            obstacles.push({ x: x, y: 0 });
+        }
+    }
+
+    // Fungsi untuk menggambar seluruh permainan
+    function draw() {
+        if (gameOver) {
+            drawGameOver();
+            return;
+        }
+
+        // Menghapus layar sebelumnya
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Menggambar stikman dan rintangan
+        drawStikman();
+        drawObstacles();
+        drawScore();
+
+        // Menggerakkan stikman dan rintangan
+        updateStikmanPosition();
+        moveObstacles();
+        checkCollisions();
+        addObstacle();
+
+        // Memanggil fungsi draw() setiap frame
+        requestAnimationFrame(draw);
+    }
+
+    // Mulai permainan
+    draw();
+</script>
+
+</body>
+</html>

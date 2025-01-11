@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Door Lock - Smart Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .container {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .lock-control {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .lock-control img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .lock-status {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .status-indicator {
+            font-size: 20px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .status-indicator.locked {
+            color: #e74c3c;
+        }
+
+        .control-buttons {
+            margin-top: 20px;
+        }
+
+        .control-buttons button {
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            margin: 10px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 200px;
+        }
+
+        .control-buttons button:hover {
+            background-color: #3498db;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media screen and (max-width: 600px) {
+            .control-buttons button {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Smart Home</h1>
+        <p>Kontrol Kunci Pintu Pintar Anda</p>
+    </header>
+
+    <div class="container">
+        <div class="lock-control">
+            <img src="https://via.placeholder.com/150?text=Smart+Lock" alt="Smart Door Lock">
+            <p class="lock-status">Status Pintu:</p>
+            <p id="lockStatus" class="status-indicator">Terbuka</p>
+        </div>
+
+        <div class="control-buttons">
+            <button id="lockBtn">Kunci Pintu</button>
+            <button id="unlockBtn">Buka Kunci Pintu</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart Home. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        // Mendapatkan elemen-elemen DOM
+        const lockStatus = document.getElementById('lockStatus');
+        const lockBtn = document.getElementById('lockBtn');
+        const unlockBtn = document.getElementById('unlockBtn');
+
+        // Fungsi untuk mengunci pintu
+        lockBtn.addEventListener('click', function() {
+            lockStatus.textContent = 'Terkunci';
+            lockStatus.classList.remove('locked'); // Menghapus kelas locked (warna hijau)
+            lockStatus.classList.add('locked'); // Menambahkan kelas locked (warna merah)
+            lockBtn.disabled = true; // Menonaktifkan tombol "Kunci Pintu"
+            unlockBtn.disabled = false; // Mengaktifkan tombol "Buka Kunci Pintu"
+        });
+
+        // Fungsi untuk membuka kunci pintu
+        unlockBtn.addEventListener('click', function() {
+            lockStatus.textContent = 'Terbuka';
+            lockStatus.classList.remove('locked'); // Menghapus kelas locked (warna merah)
+            lockStatus.classList.add('status-indicator'); // Menambahkan kelas status indikator hijau
+            unlockBtn.disabled = true; // Menonaktifkan tombol "Buka Kunci Pintu"
+            lockBtn.disabled = false; // Mengaktifkan tombol "Kunci Pintu"
+        });
+
+        // Status awal: Pintu Terbuka
+        unlockBtn.disabled = true;
+    </script>
+
+</body>
+</html>

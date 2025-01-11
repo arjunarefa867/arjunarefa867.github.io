@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Home Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .device-card {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        .device-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .device-card button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .device-card button:hover {
+            background-color: #45a049;
+        }
+
+        .status {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Smart Home Dashboard</h1>
+
+        <!-- Smart Lock Device -->
+        <div class="device-card" id="lockDevice">
+            <h2>Smart Door Lock</h2>
+            <button id="lockBtn">Kunci Pintu</button>
+            <button id="unlockBtn" style="display:none;">Buka Kunci Pintu</button>
+            <div class="status" id="lockStatus">Status: Pintu Terbuka</div>
+        </div>
+
+        <!-- Smart Light Device -->
+        <div class="device-card" id="lightDevice">
+            <h2>Smart Light</h2>
+            <button id="onLightBtn">Nyalakan Lampu</button>
+            <button id="offLightBtn" style="display:none;">Matikan Lampu</button>
+            <div class="status" id="lightStatus">Status: Lampu Mati</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Smart Home. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Kode untuk Smart Door Lock
+        let isDoorLocked = false;
+        const lockBtn = document.getElementById('lockBtn');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const lockStatus = document.getElementById('lockStatus');
+
+        lockBtn.addEventListener('click', function() {
+            isDoorLocked = true;
+            lockStatus.textContent = "Status: Pintu Terkunci";
+            lockBtn.style.display = "none";
+            unlockBtn.style.display = "inline-block";
+        });
+
+        unlockBtn.addEventListener('click', function() {
+            isDoorLocked = false;
+            lockStatus.textContent = "Status: Pintu Terbuka";
+            unlockBtn.style.display = "none";
+            lockBtn.style.display = "inline-block";
+        });
+
+        // Kode untuk Smart Light
+        let isLightOn = false;
+        const onLightBtn = document.getElementById('onLightBtn');
+        const offLightBtn = document.getElementById('offLightBtn');
+        const lightStatus = document.getElementById('lightStatus');
+
+        onLightBtn.addEventListener('click', function() {
+            isLightOn = true;
+            lightStatus.textContent = "Status: Lampu Menyala";
+            onLightBtn.style.display = "none";
+            offLightBtn.style.display = "inline-block";
+        });
+
+        offLightBtn.addEventListener('click', function() {
+            isLightOn = false;
+            lightStatus.textContent = "Status: Lampu Mati";
+            offLightBtn.style.display = "none";
+            onLightBtn.style.display = "inline-block";
+        });
+    </script>
+
+</body>
+</html>

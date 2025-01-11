@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Smart Home</title>
+   <link rel="stylesheet" href="css/setting.css">
+</head>
+<body>
+    <a hreflang="class"font-family itemref="imk.html"></a>
+    <header>
+      <a href="home.html">
+        <button class="back-button" onclick="window.history.back()">Kembali</button>
+        </a>
+        <h1>Smart Home Settings</h1>
+        <p>Customize your smart home preferences</p>
+    </header>
+
+    <div class="settings-container">
+        <!-- User Account Settings -->
+        <div class="setting-card">
+            <h3>User Account Settings</h3>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" value="Arjuna Refa">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" value="john.steven@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Change your password">
+                </div>
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Device Preferences -->
+        <div class="setting-card">
+            <h3>Device Preferences</h3>
+            <form>
+                <div class="form-group">
+                    <label for="language">Language:</label>
+                    <select id="language" name="language">
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="theme">Theme:</label>
+                    <select id="theme" name="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <button type="submit" class="save-button">Save Preferences</button>
+            </form>
+        </div>
+        <!-- Notifications Settings -->
+        <div class="setting-card">
+            <h3>Notification Settings</h3>
+            <form>
+                <div class="form-group">
+                    <label for="email-notifications">Email Notifications:</label>
+                    <input type="checkbox" id="email-notifications" name="email-notifications" checked>
+                </div>
+                <div class="form-group">
+                    <label for="sms-notifications">SMS Notifications:</label>
+                    <input type="checkbox" id="sms-notifications" name="sms-notifications">
+                </div>
+                <button type="submit" class="save-button">Save Notifications</button>
+            </form>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="setting-card">
+            <h3>Security Settings</h3>
+            <form>
+                <div class="form-group">
+                    <label for="two-factor">Enable Two-Factor Authentication:</label>
+                    <input type="checkbox" id="two-factor" name="two-factor" checked>
+                </div>
+                <div class="form-group">
+                    <label for="security-question">Security Question:</label>
+                    <input type="text" id="security-question" name="security-question" placeholder="What is your pet's name?">
+                </div>
+                <button type="submit" class="save-button">Save Security Settings</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submissions (if needed)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Settings have been saved successfully!');
+            });
+        });
+    </script>
+
+</body>
+</html>
